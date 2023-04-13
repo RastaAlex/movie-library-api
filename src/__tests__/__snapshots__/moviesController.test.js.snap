@@ -1,0 +1,436 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movies API DELETE /movies/:id should delete a movie 1`] = `
+{
+  "status": 1,
+}
+`;
+
+exports[`Movies API DELETE should delete a movie 1`] = `
+{
+  "status": 1,
+}
+`;
+
+exports[`Movies API GET should return a list of movies 1`] = `
+[
+  {
+    "actors": [
+      "Test Actor1",
+      "Test Actor2",
+    ],
+    "format": "DVD",
+    "id": 1,
+    "title": "Test Movie",
+    "year": 2023,
+  },
+]
+`;
+
+exports[`Movies API GET should return a movie by id 1`] = `
+{
+  "data": {
+    "actors": [
+      "Test Actor1",
+      "Test Actor2",
+    ],
+    "format": "DVD",
+    "id": 2,
+    "title": "Test Movie",
+    "year": 2023,
+  },
+  "status": 1,
+}
+`;
+
+exports[`Movies API PATCH /movies/:id should update a movie 1`] = `
+{
+  "data": {
+    "actors": [
+      "Updated Actor1",
+      "Updated Actor2",
+    ],
+    "format": "Blu-Ray",
+    "id": 5,
+    "title": "Updated Movie",
+    "year": 2023,
+  },
+  "status": 1,
+}
+`;
+
+exports[`Movies API PATCH should update a movie 1`] = `
+{
+  "data": {
+    "actors": [
+      "Updated Actor1",
+      "Updated Actor2",
+    ],
+    "format": "Blu-Ray",
+    "id": 5,
+    "title": "Updated Movie",
+    "year": 2023,
+  },
+  "status": 1,
+}
+`;
+
+exports[`Movies API POST /movies should create a new movie 1`] = `
+{
+  "data": {
+    "actors": [
+      "New Actor1",
+      "New Actor2",
+    ],
+    "format": "DVD",
+    "id": 4,
+    "title": "New Movie",
+    "year": 2023,
+  },
+  "status": 1,
+}
+`;
+
+exports[`Movies API POST should create a new movie 1`] = `
+{
+  "data": {
+    "actors": [
+      "New Actor1",
+      "New Actor2",
+    ],
+    "format": "DVD",
+    "id": 4,
+    "title": "New Movie",
+    "year": 2023,
+  },
+  "status": 1,
+}
+`;
+
+exports[`Movies API POST should import movies from a file 1`] = `
+{
+  "data": [
+    {
+      "actors": [
+        "Mel Brooks",
+        "Clevon Little",
+        "Harvey Korman",
+        "Gene Wilder",
+        "Slim Pickens",
+        "Madeline Kahn",
+      ],
+      "format": "VHS",
+      "id": 8,
+      "title": "Blazing Saddles",
+      "year": 1974,
+    },
+    {
+      "actors": [
+        "Humphrey Bogart",
+        "Ingrid Bergman",
+        "Claude Rains",
+        "Peter Lorre",
+      ],
+      "format": "DVD",
+      "id": 9,
+      "title": "Casablanca",
+      "year": 1942,
+    },
+    {
+      "actors": [
+        "Audrey Hepburn",
+        "Cary Grant",
+        "Walter Matthau",
+        "James Coburn",
+        "George Kennedy",
+      ],
+      "format": "DVD",
+      "id": 10,
+      "title": "Charade",
+      "year": 1953,
+    },
+    {
+      "actors": [
+        "Paul Newman",
+        "George Kennedy",
+        "Strother Martin",
+      ],
+      "format": "VHS",
+      "id": 11,
+      "title": "Cool Hand Luke",
+      "year": 1967,
+    },
+    {
+      "actors": [
+        "Paul Newman",
+        "Robert Redford",
+        "Katherine Ross",
+      ],
+      "format": "VHS",
+      "id": 12,
+      "title": "Butch Cassidy and the Sundance Kid",
+      "year": 1969,
+    },
+    {
+      "actors": [
+        "Robert Redford",
+        "Paul Newman",
+        "Robert Shaw",
+        "Charles Durning",
+      ],
+      "format": "DVD",
+      "id": 13,
+      "title": "The Sting",
+      "year": 1973,
+    },
+    {
+      "actors": [
+        "Jim Henson",
+        "Frank Oz",
+        "Dave Geolz",
+        "Mel Brooks",
+        "James Coburn",
+        "Charles Durning",
+        "Austin Pendleton",
+      ],
+      "format": "DVD",
+      "id": 14,
+      "title": "The Muppet Movie",
+      "year": 1979,
+    },
+    {
+      "actors": [
+        "John Travolta",
+        "Danny DeVito",
+        "Renne Russo",
+        "Gene Hackman",
+        "Dennis Farina",
+      ],
+      "format": "DVD",
+      "id": 15,
+      "title": "Get Shorty ",
+      "year": 1995,
+    },
+    {
+      "actors": [
+        "Joe Pesci",
+        "Marrisa Tomei",
+        "Fred Gwynne",
+        "Austin Pendleton",
+        "Lane Smith",
+        "Ralph Macchio",
+      ],
+      "format": "DVD",
+      "id": 16,
+      "title": "My Cousin Vinny",
+      "year": 1992,
+    },
+    {
+      "actors": [
+        "Russell Crowe",
+        "Joaquin Phoenix",
+        "Connie Nielson",
+      ],
+      "format": "Blu-Ray",
+      "id": 17,
+      "title": "Gladiator",
+      "year": 2000,
+    },
+    {
+      "actors": [
+        "Harrison Ford",
+        "Mark Hamill",
+        "Carrie Fisher",
+        "Alec Guinness",
+        "James Earl Jones",
+      ],
+      "format": "Blu-Ray",
+      "id": 18,
+      "title": "Star Wars",
+      "year": 1977,
+    },
+    {
+      "actors": [
+        "Harrison Ford",
+        "Karen Allen",
+      ],
+      "format": "DVD",
+      "id": 19,
+      "title": "Raiders of the Lost Ark",
+      "year": 1981,
+    },
+    {
+      "actors": [
+        "Nathan Fillion",
+        "Alan Tudyk",
+        "Adam Baldwin",
+        "Ron Glass",
+        "Jewel Staite",
+        "Gina Torres",
+        "Morena Baccarin",
+        "Sean Maher",
+        "Summer Glau",
+        "Chiwetel Ejiofor",
+      ],
+      "format": "Blu-Ray",
+      "id": 20,
+      "title": "Serenity",
+      "year": 2005,
+    },
+    {
+      "actors": [
+        "Gene Hackman",
+        "Barbara Hershey",
+        "Dennis Hopper",
+      ],
+      "format": "VHS",
+      "id": 21,
+      "title": "Hooisers",
+      "year": 1986,
+    },
+    {
+      "actors": [
+        "Matthew Broderick",
+        "Ally Sheedy",
+        "Dabney Coleman",
+        "John Wood",
+        "Barry Corbin",
+      ],
+      "format": "VHS",
+      "id": 22,
+      "title": "WarGames",
+      "year": 1983,
+    },
+    {
+      "actors": [
+        "Bill Pullman",
+        "John Candy",
+        "Mel Brooks",
+        "Rick Moranis",
+        "Daphne Zuniga",
+        "Joan Rivers",
+      ],
+      "format": "DVD",
+      "id": 23,
+      "title": "Spaceballs",
+      "year": 1987,
+    },
+    {
+      "actors": [
+        "Gene Wilder",
+        "Kenneth Mars",
+        "Terri Garr",
+        "Gene Hackman",
+        "Peter Boyle",
+      ],
+      "format": "VHS",
+      "id": 24,
+      "title": "Young Frankenstein",
+      "year": 1974,
+    },
+    {
+      "actors": [
+        "Val Kilmer",
+        "Gabe Jarret",
+        "Michelle Meyrink",
+        "William Atherton",
+      ],
+      "format": "VHS",
+      "id": 25,
+      "title": "Real Genius",
+      "year": 1985,
+    },
+    {
+      "actors": [
+        "Tom Cruise",
+        "Kelly McGillis",
+        "Val Kilmer",
+        "Anthony Edwards",
+        "Tom Skerritt",
+      ],
+      "format": "DVD",
+      "id": 26,
+      "title": "Top Gun",
+      "year": 1986,
+    },
+    {
+      "actors": [
+        "Donald Sutherland",
+        "Elliot Gould",
+        "Tom Skerritt",
+        "Sally Kellerman",
+        "Robert Duvall",
+      ],
+      "format": "DVD",
+      "id": 27,
+      "title": "MASH",
+      "year": 1970,
+    },
+    {
+      "actors": [
+        "Carl Reiner",
+        "Eva Marie Saint",
+        "Alan Arkin",
+        "Brian Keith",
+      ],
+      "format": "VHS",
+      "id": 28,
+      "title": "The Russians Are Coming, The Russians Are Coming",
+      "year": 1966,
+    },
+    {
+      "actors": [
+        "Roy Scheider",
+        "Robert Shaw",
+        "Richard Dreyfuss",
+        "Lorraine Gary ",
+      ],
+      "format": "DVD",
+      "id": 29,
+      "title": "Jaws",
+      "year": 1975,
+    },
+    {
+      "actors": [
+        "Keir Dullea",
+        "Gary Lockwood",
+        "William Sylvester",
+        "Douglas Rain",
+      ],
+      "format": "DVD",
+      "id": 30,
+      "title": "2001",
+      "year": 1968,
+    },
+    {
+      "actors": [
+        "James Stewart",
+        "Josephine Hull",
+        "Peggy Dow",
+        "Charles Drake",
+      ],
+      "format": "DVD",
+      "id": 31,
+      "title": "Harvey",
+      "year": 1950,
+    },
+    {
+      "actors": [
+        "Seth Rogen",
+        "Katherine Heigl",
+        "Paul Rudd",
+        "Leslie Mann",
+      ],
+      "format": "Blu-Ray",
+      "id": 32,
+      "title": "Knocked Up",
+      "year": 2007,
+    },
+  ],
+  "meta": {
+    "imported": 25,
+    "total": 25,
+  },
+  "status": 1,
+}
+`;
