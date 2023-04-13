@@ -2,8 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import movieRoutes from './app/routes/moviesRoutes.js';
-import userRoutes from './app/routes/usersRoutes.js';
+import movieRoutes from './src/routes/moviesRoutes.js';
+import userRoutes from './src/routes/usersRoutes.js';
 import { sequelize } from './config/database.js';
 
 dotenv.config();

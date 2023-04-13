@@ -4,8 +4,11 @@ import Movie from '../models/Movie.js';
 
 const addMovie = async (req, res) => {
   try {
-    const movie = await Movie.create(req.body);
-    res.status(201).json(movie);
+    const { title, year, format, actors } = req.body;
+
+    const movie = await Movie.create({ title, year, format, actors });
+
+    res.status(201).json({ data: movie.toJSON(), status: 1 });
   } catch (error) {
     res.status(400).json({ message: 'Error while adding movie', error });
   }
@@ -20,9 +23,29 @@ const deleteMovie = async (req, res) => {
     }
 
     await movie.destroy();
-    res.status(204).json({ message: 'Movie deleted successfully' });
+
+    res.status(200).json({ status: 1 });
   } catch (error) {
     res.status(400).json({ message: 'Error while deleting movie', error });
+  }
+};
+
+const updateMovie = async (req, res) => {
+  const { id } = req.params;
+  const updateData = req.body;
+
+  try {
+    const movie = await Movie.findByPk(id);
+
+    if (!movie) {
+      return res.status(404).json({ message: 'Movie not found' });
+    }
+
+    await movie.update(updateData);
+
+    res.status(200).json({ data: movie.toJSON(), status: 1 });
+  } catch (error) {
+    res.status(400).json({ message: 'Error while updating movie', error });
   }
 };
 
@@ -34,7 +57,7 @@ const getMovie = async (req, res) => {
       return res.status(404).json({ message: 'Movie not found' });
     }
 
-    res.status(200).json(movie);
+    res.status(200).json({ data: movie.toJSON(), status: 1 });
   } catch (error) {
     res.status(400).json({ message: 'Error while getting movie', error });
   }
@@ -43,45 +66,14 @@ const getMovie = async (req, res) => {
 const getMovies = async (req, res) => {
   try {
     const movies = await Movie.findAll({ order: [['title', 'ASC']] });
+
+    if (movies.length === 0) {
+      return res.status(404).json({ message: 'Movies not found' });
+    }
+
     res.status(200).json(movies);
   } catch (error) {
     res.status(400).json({ message: 'Error while getting movies', error });
-  }
-};
-
-const searchMovieByTitle = async (req, res) => {
-  try {
-    const title = req.params.title;
-    const movie = await Movie.findOne({ where: { title } });
-
-    if (!movie) {
-      return res.status(404).json({ message: 'Movie not found' });
-    }
-
-    res.status(200).json(movie);
-  } catch (error) {
-    res.status(400).json({ message: 'Error while searching movie by title', error });
-  }
-};
-
-const searchMovieByActor = async (req, res) => {
-  try {
-    const actor = req.params.actor;
-    const movies = await Movie.findAll({
-      where: {
-        actors: {
-          [Op.like]: `%${actor}%`,
-        },
-      },
-    });
-
-    if (!movies.length) {
-      return res.status(404).json({ message: 'No movies found for the given actor' });
-    }
-
-    res.status(200).json(movies);
-  } catch (error) {
-    res.status(400).json({ message: 'Error while searching movie by actor', error });
   }
 };
 
@@ -101,7 +93,7 @@ const importMovies = async (req, res) => {
       title: '',
       year: null,
       format: '',
-      actors: ''
+      actors: []
     };
 
     for (const line of lines) {
@@ -114,14 +106,14 @@ const importMovies = async (req, res) => {
       } else if (key === 'Format') {
         movieData.format = value;
       } else if (key === 'Stars') {
-        movieData.actors = value;
+        movieData.actors = value.split(', ');
       }
     }
 
     try {
       await Movie.create({
         title: movieData.title,
-        releaseYear: movieData.year,
+        year: movieData.year,
         format: movieData.format,
         actors: movieData.actors
       });
@@ -137,14 +129,13 @@ const importMovies = async (req, res) => {
 
   fs.unlinkSync(filePath);
   res.status(200).json({ message: 'Movies imported successfully' });
-}
+};
 
 export default {
     addMovie,
     deleteMovie,
+    updateMovie,
     getMovie,
     getMovies,
-    searchMovieByTitle,
-    searchMovieByActor,
     importMovies,
   };

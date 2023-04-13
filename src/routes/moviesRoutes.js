@@ -19,10 +19,9 @@ router.use(authMiddleware);
 
 router.post('/api/v1/movies', moviesController.addMovie);
 router.delete('/api/v1/movies/:id', moviesController.deleteMovie);
+router.patch('/api/v1/movies/:id', moviesController.updateMovie);
 router.get('/api/v1/movies/:id', moviesController.getMovie);
 router.get('/api/v1/movies', moviesController.getMovies);
-router.get('/api/v1/movies/search/title/:title', moviesController.searchMovieByTitle);
-router.get('/api/v1/movies/search/actor/:actor', moviesController.searchMovieByActor);
 router.post('/api/v1/movies/import', upload.single('file'), moviesController.importMovies);
 
 export default router;

@@ -14,7 +14,7 @@ Movie.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  releaseYear: {
+  year: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -25,6 +25,12 @@ Movie.init({
   actors: {
     type: DataTypes.STRING,
     allowNull: false,
+    get() {
+      return this.getDataValue('actors').split(';');
+    },
+    set(val) {
+      this.setDataValue('actors', val.join(';'));
+    },
   },
 }, {
   sequelize,
