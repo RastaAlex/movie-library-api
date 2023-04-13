@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Users API POST should create a new user 1`] = `
+{
+  "status": 1,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTY4MTQxMzMyNiwiZXhwIjoxNjgxNDE2OTI2fQ.QTTBzZbBUszr9WcUqAmtUsUWnspmxaY9OHCH5--2gU0",
+}
+`;
+
+exports[`Users API POST should return a token for an existing user 1`] = `
+{
+  "status": 1,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNjgxNDEzMzI3LCJleHAiOjE2ODE0MTY5Mjd9.DiGCahEEFqc5vu0yaAHwh6c7SnOlssAntGlPKNVW6ag",
+}
+`;

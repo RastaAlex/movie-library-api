@@ -141,7 +141,7 @@ const importMovies = async (req, res) => {
         message: 'Error while importing movies',
         error
       });
-      return;
+      continue;
     }
   }
 

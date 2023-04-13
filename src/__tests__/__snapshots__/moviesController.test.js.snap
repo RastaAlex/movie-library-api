@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Movies API DELETE /movies/:id should delete a movie 1`] = `
-{
-  "status": 1,
-}
-`;
-
 exports[`Movies API DELETE should delete a movie 1`] = `
 {
   "status": 1,
@@ -43,22 +37,6 @@ exports[`Movies API GET should return a movie by id 1`] = `
 }
 `;
 
-exports[`Movies API PATCH /movies/:id should update a movie 1`] = `
-{
-  "data": {
-    "actors": [
-      "Updated Actor1",
-      "Updated Actor2",
-    ],
-    "format": "Blu-Ray",
-    "id": 5,
-    "title": "Updated Movie",
-    "year": 2023,
-  },
-  "status": 1,
-}
-`;
-
 exports[`Movies API PATCH should update a movie 1`] = `
 {
   "data": {
@@ -69,22 +47,6 @@ exports[`Movies API PATCH should update a movie 1`] = `
     "format": "Blu-Ray",
     "id": 5,
     "title": "Updated Movie",
-    "year": 2023,
-  },
-  "status": 1,
-}
-`;
-
-exports[`Movies API POST /movies should create a new movie 1`] = `
-{
-  "data": {
-    "actors": [
-      "New Actor1",
-      "New Actor2",
-    ],
-    "format": "DVD",
-    "id": 4,
-    "title": "New Movie",
     "year": 2023,
   },
   "status": 1,
