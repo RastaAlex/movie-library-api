@@ -9,9 +9,13 @@ const STATUS_CREATED = 201;
 const STATUS_OK = 200;
 const STATUS_SERVER_ERROR = 500;
 
+const isValidPassword = (password) => typeof password === 'string' && password.length > 0;
+
 const register = async (req, res) => {
   try {
-    const { email, name, password, confirmPassword } = req.body;
+    const {
+      email, name, password, confirmPassword,
+    } = req.body;
 
     if (!validator.isEmail(email)) {
       return res.status(STATUS_BAD_REQUEST).json({ message: 'Email must be valid' });
@@ -41,12 +45,12 @@ const register = async (req, res) => {
     const token = jwt.sign(
       { id: newUser.id, email: newUser.email, name: newUser.name },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '1h' },
     );
 
     res.status(STATUS_CREATED).json({ token, status: 1 });
   } catch (error) {
-    res.status(STATUS_SERVER_ERROR).json({ message: 'Error while registering user', error: error.message  });
+    res.status(STATUS_SERVER_ERROR).json({ message: 'Error while registering user', error: error.message });
   }
 };
 
@@ -67,17 +71,13 @@ const login = async (req, res) => {
     const token = jwt.sign(
       { id: user.id, email: user.email },
       process.env.JWT_SECRET,
-      { expiresIn: '1h' }
+      { expiresIn: '1h' },
     );
 
     res.status(STATUS_OK).json({ token, status: 1 });
   } catch (error) {
     res.status(STATUS_SERVER_ERROR).json({ message: 'Error while logging in', error });
   }
-};
-
-const isValidPassword = (password) => {
-  return typeof password === 'string' && password.length > 0;
 };
 
 export default {

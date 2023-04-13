@@ -18,9 +18,9 @@ afterAll(async () => {
 });
 
 describe('Users API', () => {
-    beforeEach(async () => {
-        await User.destroy({ where: {}, truncate: true });
-    });
+  beforeEach(async () => {
+    await User.destroy({ where: {}, truncate: true });
+  });
 
   test('POST should create a new user', async () => {
     const newUser = {
@@ -44,14 +44,13 @@ describe('Users API', () => {
       confirmPassword: 'password123',
     };
     await request.post('/api/v1/users').send(newUser);
-  
+
     const response = await request.post('/api/v1/sessions').send({
       email: 'test@example.com',
       password: 'password123',
     });
-  
+
     expect(response.statusCode).toBe(200);
     expect(response.body).toMatchSnapshot();
   });
-  
 });

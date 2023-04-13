@@ -3,15 +3,13 @@ import { app } from '../../app.js';
 import { sequelize } from '../../config/database.js';
 import Movie from '../models/Movie.js';
 
-jest.mock('../middleware/authMiddleware.js', () => {
-  return {
-    __esModule: true,
-    default: jest.fn((req, res, next) => {
-      req.user = { id: 1 };
-      next();
-    })
-  };
-});
+jest.mock('../middleware/authMiddleware.js', () => ({
+  __esModule: true,
+  default: jest.fn((req, res, next) => {
+    req.user = { id: 1 };
+    next();
+  }),
+}));
 
 let server;
 let request;

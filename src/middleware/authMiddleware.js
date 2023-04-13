@@ -12,7 +12,7 @@ const authMiddleware = async (req, res, next) => {
       return res.status(STATUS_FORBIDDEN).json({ message: 'Authentication required' });
     }
 
-    const decodedData = jwt.verify(token, process.env.JWT_SECRET); 
+    const decodedData = jwt.verify(token, process.env.JWT_SECRET);
 
     req.user = await User.findByPk(decodedData.id);
 

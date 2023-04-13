@@ -1,7 +1,4 @@
-import { 
-  promises as fsPromises,
-  existsSync as fsExistsSync,
- } from 'fs';
+import { promises as fsPromises, existsSync as fsExistsSync } from 'fs';
 import Movie from '../models/Movie.js';
 
 const STATUS_BAD_REQUEST = 400;
@@ -12,9 +9,13 @@ const STATUS_SERVER_ERROR = 500;
 
 const addMovie = async (req, res) => {
   try {
-    const { title, year, format, actors } = req.body;
+    const {
+      title, year, format, actors,
+    } = req.body;
 
-    const movie = await Movie.create({ title, year, format, actors });
+    const movie = await Movie.create({
+      title, year, format, actors,
+    });
 
     res.status(STATUS_CREATED).json({ data: movie.toJSON(), status: 1 });
   } catch (error) {
@@ -99,16 +100,16 @@ const importMovies = async (req, res) => {
 
   let importedCount = 0;
   let totalCount = 0;
-  let importedMovies = [];
+  const importedMovies = [];
 
   for (const movieSection of movieSections) {
-    totalCount++
+    totalCount++;
     const lines = movieSection.split('\n');
     const movieData = {
       title: '',
       year: null,
       format: '',
-      actors: []
+      actors: [],
     };
 
     for (const line of lines) {
@@ -130,35 +131,32 @@ const importMovies = async (req, res) => {
         title: movieData.title,
         year: movieData.year,
         format: movieData.format,
-        actors: movieData.actors
+        actors: movieData.actors,
       });
 
       importedMovies.push(createdMovie);
       importedCount++;
     } catch (error) {
-      console.error('Error while importing movies:', error);
       res.status(STATUS_SERVER_ERROR).json({
         message: 'Error while importing movies',
-        error
+        error,
       });
       continue;
     }
   }
 
-  const movies = await Movie.findAll();
-
   res.status(STATUS_OK).json({
     data: importedMovies,
     meta: { imported: importedCount, total: totalCount },
-    status: 1
-  });  
+    status: 1,
+  });
 };
 
 export default {
-    addMovie,
-    deleteMovie,
-    updateMovie,
-    getMovie,
-    getMovies,
-    importMovies,
-  };
+  addMovie,
+  deleteMovie,
+  updateMovie,
+  getMovie,
+  getMovies,
+  importMovies,
+};
