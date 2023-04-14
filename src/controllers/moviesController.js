@@ -1,4 +1,5 @@
 import { promises as fsPromises, existsSync as fsExistsSync } from 'fs';
+import { Op } from 'sequelize';
 import Movie from '../models/movie.js';
 
 const STATUS_BAD_REQUEST = 400;
@@ -101,7 +102,34 @@ const getMovie = async (req, res) => {
  */
 const getMovies = async (req, res) => {
   try {
-    const movies = await Movie.findAll({ order: [['title', 'ASC']] });
+    const {
+      title, actor, sort, order, limit, offset,
+    } = req.query;
+    const sorting = sort || 'id';
+    const sortOrder = order || 'ASC';
+    const limitValue = limit ? parseInt(limit, 10) : 20;
+    const offsetValue = offset ? parseInt(offset, 10) : 0;
+
+    const whereOptions = {};
+
+    if (title) {
+      whereOptions.title = {
+        [Op.like]: `%${title}%`,
+      };
+    }
+
+    if (actor) {
+      whereOptions.actors = {
+        [Op.like]: `%${actor}%`,
+      };
+    }
+
+    const movies = await Movie.findAll({
+      where: whereOptions,
+      order: [[sorting, sortOrder]],
+      limit: limitValue,
+      offset: offsetValue,
+    });
 
     if (movies.length === 0) {
       return res.status(STATUS_NOT_FOUND).json({ message: 'Movies not found' });
