@@ -1,7 +1,7 @@
 {
   "name": "movie-library-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "web application for storing and managing movie information",
   "main": "app.js",
   "type": "module",
   "scripts": {
@@ -18,8 +18,8 @@
     "coverageDirectory": "."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "RastaAlex",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",

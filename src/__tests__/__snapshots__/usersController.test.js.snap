@@ -3,13 +3,13 @@
 exports[`Users API POST should create a new user 1`] = `
 {
   "status": 1,
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTY4MTQ2ODIyNCwiZXhwIjoxNjgxNDcxODI0fQ.0Wz6LYERUiJ_EnLo9B60nlkdinV6N6my6_pxk_MUzbE",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwibmFtZSI6IlRlc3QgVXNlciIsImlhdCI6MTY4MTQ3MDI5OSwiZXhwIjoxNjgxNDczODk5fQ.VhgOLvceas9Cyfbqbmbhb8pCifekSowYqH4aiSWklMY",
 }
 `;
 
 exports[`Users API POST should return a token for an existing user 1`] = `
 {
   "status": 1,
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNjgxNDY4MjI1LCJleHAiOjE2ODE0NzE4MjV9.TFFWptq1SgYXqZIvCZ9jv9hK-wgoGA__A0MTktwwlHo",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNjgxNDcwMzAwLCJleHAiOjE2ODE0NzM5MDB9.uQvY2REItP2pYKKeT99pjYzuchyC-LGUmGw7OjkJWPU",
 }
 `;

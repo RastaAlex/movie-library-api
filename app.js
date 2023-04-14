@@ -6,7 +6,7 @@ import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 import movieRoutes from './src/routes/moviesRoutes.js';
 import userRoutes from './src/routes/usersRoutes.js';
-import { sequelize } from './config/database.js';
+import { sequelize } from './src/config/database.js';
 
 dotenv.config();
 const app = express();
