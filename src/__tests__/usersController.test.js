@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import { app } from '../../app.js';
 import { sequelize } from '../../config/database.js';
-import User from '../models/User.js';
+import User from '../models/user.js';
 
 let server;
 let request;

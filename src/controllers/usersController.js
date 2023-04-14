@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import validator from 'validator';
-import User from '../models/User.js';
+import User from '../models/user.js';
 
 const STATUS_BAD_REQUEST = 400;
 const STATUS_NOT_FOUND = 404;
@@ -11,6 +11,11 @@ const STATUS_SERVER_ERROR = 500;
 
 const isValidPassword = (password) => typeof password === 'string' && password.length > 0;
 
+/**
+ * Register a new user.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const register = async (req, res) => {
   try {
     const {
@@ -54,6 +59,11 @@ const register = async (req, res) => {
   }
 };
 
+/**
+ * Log in a user.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;

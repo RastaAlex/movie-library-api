@@ -1,5 +1,5 @@
 import { promises as fsPromises, existsSync as fsExistsSync } from 'fs';
-import Movie from '../models/Movie.js';
+import Movie from '../models/movie.js';
 
 const STATUS_BAD_REQUEST = 400;
 const STATUS_NOT_FOUND = 404;
@@ -7,6 +7,11 @@ const STATUS_CREATED = 201;
 const STATUS_OK = 200;
 const STATUS_SERVER_ERROR = 500;
 
+/**
+ * Add a new movie.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const addMovie = async (req, res) => {
   try {
     const {
@@ -23,6 +28,11 @@ const addMovie = async (req, res) => {
   }
 };
 
+/**
+ * Delete a movie by ID.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const deleteMovie = async (req, res) => {
   try {
     const { id } = req.params;
@@ -40,6 +50,11 @@ const deleteMovie = async (req, res) => {
   }
 };
 
+/**
+ * Update a movie by ID.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const updateMovie = async (req, res) => {
   const { id } = req.params;
   const updateData = req.body;
@@ -59,6 +74,11 @@ const updateMovie = async (req, res) => {
   }
 };
 
+/**
+ * Get a movie by ID.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const getMovie = async (req, res) => {
   try {
     const { id } = req.params;
@@ -74,6 +94,11 @@ const getMovie = async (req, res) => {
   }
 };
 
+/**
+ * Get all movies.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const getMovies = async (req, res) => {
   try {
     const movies = await Movie.findAll({ order: [['title', 'ASC']] });
@@ -88,6 +113,11 @@ const getMovies = async (req, res) => {
   }
 };
 
+/**
+ * Import movies from a text file.
+ * @param {object} req - The request object.
+ * @param {object} res - The response object.
+ */
 const importMovies = async (req, res) => {
   const filePath = req.file.path;
   if (!fsExistsSync(filePath)) {

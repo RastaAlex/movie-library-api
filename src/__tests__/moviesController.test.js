@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import { app } from '../../app.js';
 import { sequelize } from '../../config/database.js';
-import Movie from '../models/Movie.js';
+import Movie from '../models/movie.js';
 
 jest.mock('../middleware/authMiddleware.js', () => ({
   __esModule: true,
