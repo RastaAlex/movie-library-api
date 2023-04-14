@@ -16,6 +16,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "import/prefer-default-export": "off",
     "quotes": ["error", "single"],
     "consistent-return": "off",
     "no-restricted-syntax": "off",
